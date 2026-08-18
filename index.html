@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrasi - SAMAFITRO X BRADY IPS PARTNER EXCELLENT SUMMIT 2026</title>
-    
-    <!-- Load face-api.js dari CDN -->
+    <title>Registrasi - SAMAFITRO X BRADY IPS PARTNER EXCELLENCE SUMMIT 2026</title>
+
+    <!-- Load Library Deteksi Wajah -->
     <script defer src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1.7.12/dist/face-api.js"></script>
 
     <style>
@@ -35,7 +35,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* --- DESAIN LOGO BERBERTINGKAT & ELEGANT --- */
+        /* --- STYLES BAGIAN LOGO --- */
         .logo-wrapper {
             display: flex;
             flex-direction: column;
@@ -44,7 +44,7 @@
             gap: 20px;
         }
 
-        /* Baris Atas: Logo Utama (Samafitro & Honeywell) */
+        /* Baris Atas: Samafitro & Honeywell */
         .logo-row-top {
             display: flex;
             align-items: center;
@@ -60,14 +60,14 @@
             object-fit: contain;
         }
 
-        /* LOGO HONEYWELL (UKURAN BESAR) */
+        /* Logo Honeywell (Diperbesar) */
         .logo-row-top img.logo-honeywell {
             max-height: 95px;
             width: auto;
             object-fit: contain;
         }
 
-        /* Pemisah/Divider Halus antar Logo Atas */
+        /* Garis Pemisah antar Logo Atas */
         .logo-divider {
             height: 60px;
             width: 1.5px;
@@ -88,6 +88,7 @@
             object-fit: contain;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
         }
+        /* -------------------------- */
 
         .header {
             text-align: center;
@@ -126,6 +127,8 @@
         }
 
         input[type="text"],
+        input[type="tel"],
+        input[type="email"],
         select,
         input[type="file"] {
             width: 100%;
@@ -137,6 +140,8 @@
         }
 
         input[type="text"]:focus,
+        input[type="tel"]:focus,
+        input[type="email"]:focus,
         select:focus,
         input[type="file"]:focus {
             outline: none;
@@ -178,7 +183,7 @@
             margin-top: 15px;
         }
 
-        /* Indicator Status Model AI */
+        /* Status AI Detection */
         .ai-status {
             font-size: 11px;
             color: #888;
@@ -191,14 +196,16 @@
 
     <div class="container">
         
-        <!-- LOGO LAYOUT -->
+        <!-- BAGIAN LOGO (GAMBAR DI LUAR FOLDER) -->
         <div class="logo-wrapper">
+            <!-- Baris Atas: Samafitro & Honeywell -->
             <div class="logo-row-top">
                 <img src="samafitro.png" alt="Logo Samafitro">
                 <div class="logo-divider"></div>
                 <img src="honeywell.png" alt="Logo Honeywell" class="logo-honeywell">
             </div>
 
+            <!-- Baris Bawah: Logo Utama AIDC -->
             <div class="logo-row-bottom">
                 <img src="aidc.png" alt="Logo AIDC" class="logo-aidc">
             </div>
@@ -206,32 +213,44 @@
 
         <div class="header">
             <h1>SAMAFITRO X BRADY IPS</h1>
-            <h2>PARTNER EXCELLENT SUMMIT 2026</h2>
+            <h2>PARTNER EXCELLENCE SUMMIT 2026</h2>
         </div>
 
         <form id="registrationForm">
             
-            <!-- FULL NAME -->
+            <!-- Nama Lengkap -->
             <div class="form-group">
-                <label for="nama">FULL NAME <span>*</span></label>
+                <label for="nama">Nama Lengkap <span>*</span></label>
                 <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap Anda" required>
+            </div>
+
+            <!-- Nomor Handphone / WhatsApp -->
+            <div class="form-group">
+                <label for="no_hp">Nomor Handphone / WhatsApp <span>*</span></label>
+                <input type="tel" id="no_hp" name="no_hp" placeholder="Contoh: 081234567890" pattern="[0-9]{9,15}" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Alamat Email <span>*</span></label>
+                <input type="email" id="email" name="email" placeholder="contoh@perusahaan.com" required>
             </div>
 
             <!-- Perusahaan -->
             <div class="form-group">
-                <label for="perusahaan">COMPANY NAME <span>*</span></label>
+                <label for="perusahaan">Nama Perusahaan <span>*</span></label>
                 <input type="text" id="perusahaan" name="perusahaan" placeholder="Masukkan nama perusahaan" required>
             </div>
 
             <!-- Jabatan -->
             <div class="form-group">
-                <label for="jabatan">POSITION <span>*</span></label>
+                <label for="jabatan">Jabatan <span>*</span></label>
                 <input type="text" id="jabatan" name="jabatan" placeholder="Masukkan jabatan Anda" required>
             </div>
 
             <!-- Size Kemeja -->
             <div class="form-group">
-                <label for="size_kemeja">SHIRT SIZE <span>*</span></label>
+                <label for="size_kemeja">Size Kemeja <span>*</span></label>
                 <select id="size_kemeja" name="size_kemeja" required>
                     <option value="" disabled selected>-- Pilih Ukuran Kemeja --</option>
                     <option value="S">S</option>
@@ -245,7 +264,7 @@
 
             <!-- Size Celana -->
             <div class="form-group">
-                <label for="size_celana">PANTS SIZE <span>*</span></label>
+                <label for="size_celana">Size Celana <span>*</span></label>
                 <select id="size_celana" name="size_celana" required>
                     <option value="" disabled selected>-- Pilih Ukuran Celana --</option>
                     <option value="28">28</option>
@@ -267,7 +286,7 @@
             <div class="form-group">
                 <label for="foto_selfie">Upload Foto Selfie <span>*</span></label>
                 <input type="file" id="foto_selfie" accept="image/*" capture="user" required>
-                <div class="file-hint">Format: JPG, PNG, JPEG. Pastikan wajah Anda terlihat jelas.</div>
+                <div class="file-hint">Format: JPG, PNG, JPEG. Foto akan terkompres otomatis saat diunggah.</div>
                 <div class="ai-status" id="aiStatus">Memuat sistem verifikasi wajah...</div>
             </div>
 
@@ -280,6 +299,7 @@
     </div>
 
     <script>
+        // WEB APP URL DARI GOOGLE APPS SCRIPT ANDA
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyEPkoEaYehB9Yuy34a0DDslSC3ORxibfkRasGVgAuAI0GCXFbpPtuWT64hc4_2zuMBhA/exec";
 
         const form = document.getElementById('registrationForm');
@@ -287,7 +307,7 @@
         const aiStatus = document.getElementById('aiStatus');
         let isModelLoaded = false;
 
-        // Load Model Face Detection (Tiny Face Detector ringan untuk mobile & desktop)
+        // Memuat Model AI Deteksi Wajah
         async function loadFaceModel() {
             try {
                 const MODEL_URL = 'https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1.7.12/model/';
@@ -299,8 +319,8 @@
                 submitBtn.innerText = "DAFTAR SEKARANG";
             } catch (err) {
                 console.error("Gagal memuat model deteksi wajah:", err);
-                aiStatus.innerText = "Peringatan: Verifikasi wajah offline. Pendaftaran tetap dapat berlanjut.";
-                aiStatus.style.color = "#d9232d";
+                aiStatus.innerText = "Deteksi wajah offline. Pendaftaran tetap dapat berlanjut.";
+                aiStatus.style.color = "#888";
                 submitBtn.disabled = false;
                 submitBtn.innerText = "DAFTAR SEKARANG";
             }
@@ -308,9 +328,9 @@
 
         window.addEventListener('DOMContentLoaded', loadFaceModel);
 
-        // Fungsi Memeriksa Keberadaan Wajah pada Foto
+        // Fungsi Memeriksa Apakah Foto Adalah Wajah
         async function checkFaceInImage(file) {
-            if (!isModelLoaded) return true; // Bypass jika model gagal dimuat
+            if (!isModelLoaded) return true; // Bila model tak termuat, loloskan agar tidak nge-block pengguna
 
             return new Promise((resolve) => {
                 const img = new Image();
@@ -318,7 +338,7 @@
                 img.onload = async () => {
                     const detections = await faceapi.detectAllFaces(
                         img, 
-                        new faceapi.TinyFaceDetectorOptions({ inputSize: 320, scoreThreshold: 0.4 })
+                        new faceapi.TinyFaceDetectorOptions({ inputSize: 320, scoreThreshold: 0.35 })
                     );
                     URL.revokeObjectURL(img.src);
                     resolve(detections.length > 0);
@@ -327,6 +347,7 @@
             });
         }
 
+        // Fungsi Resize & Kompres Foto otomatis sebelum dikirim
         function compressImage(file, maxWidth, maxHeight, quality) {
             return new Promise((resolve, reject) => {
                 const img = new Image();
@@ -363,11 +384,6 @@
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            if (SCRIPT_URL === "https://script.google.com/macros/s/AKfycbyEPkoEaYehB9Yuy34a0DDslSC3ORxibfkRasGVgAuAI0GCXFbpPtuWT64hc4_2zuMBhA/exec" || !SCRIPT_URL.includes("/exec")) {
-                alert("Harap masukkan Web App Exec URL Google Apps Script yang benar di dalam variabel SCRIPT_URL.");
-                return;
-            }
-
             const fileInput = document.getElementById('foto_selfie');
             const file = fileInput.files[0];
 
@@ -377,27 +393,28 @@
             }
 
             submitBtn.disabled = true;
-            submitBtn.innerText = "Memeriksa Foto...";
+            submitBtn.innerText = "Memeriksa Foto Selfie...";
 
             try {
-                // Step 1: Deteksi Wajah
+                // Step 1: Validasi Deteksi Wajah
                 const hasFace = await checkFaceInImage(file);
 
                 if (!hasFace) {
                     alert("Please Take Your Best Selfie");
-                    fileInput.value = ""; // Reset file input
+                    fileInput.value = ""; // Reset file input selfie
                     submitBtn.disabled = false;
                     submitBtn.innerText = "DAFTAR SEKARANG";
                     return;
                 }
 
-                // Step 2: Kompresi Gambar
+                // Step 2: Kompres gambar (Maks 1000px, Kualitas 0.7)
                 submitBtn.innerText = "Mengompres & Mengirim Data...";
                 const fotoBase64 = await compressImage(file, 1000, 1000, 0.7);
 
-                // Step 3: Payload Data
                 const payload = {
                     nama: document.getElementById('nama').value,
+                    no_hp: document.getElementById('no_hp').value,
+                    email: document.getElementById('email').value,
                     perusahaan: document.getElementById('perusahaan').value,
                     jabatan: document.getElementById('jabatan').value,
                     size_kemeja: document.getElementById('size_kemeja').value,
@@ -405,6 +422,7 @@
                     fotoBase64: fotoBase64
                 };
 
+                // Kirim request ke Google Apps Script
                 await fetch(SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
